@@ -1,71 +1,28 @@
 import React from 'react';
+import EditButton from './todo_action_buttons/EditButton';
+import ProgressButton from './todo_action_buttons/ProgressButton';
+import CompleteButton from './todo_action_buttons/CompleteButton';
+import DeleteButton from './todo_action_buttons/DeleteButton';
 
-const Todo = ({
-  todo,
-  todos,
-  setTodos,
-  inputText,
-  setInputText,
-  action,
-  setAction,
-  setItemToEdit
-}) => {
-  const deleteHandler = () => {
-    setTodos(todos.filter(item => item.id !== todo.id));
-  };
-  const completeHandler = () => {
-    setTodos(
-      todos.map(item => {
-        if (item.id === todo.id) {
-          return {
-            ...item,
-            progress: false,
-            completed: !item.completed,
-          };
-        }
-        return item;
-      })
-    );
-  };
-  const editHandler = () => {
-    setInputText(todo.text);
-    setAction('edit');
-    setItemToEdit(todo.id);
-  };
-  const progressHandler = () => {
-    setTodos(
-      todos.map(item => {
-        if (item.id === todo.id) {
-          return {
-            ...item,
-            progress: !item.progress,
-          };
-        }
-        return item;
-      })
-    );
-  };
+const Todo = ({ todo, todos, setTodos, setAction, setItemToEdit, setInputText }) => {
   return (
     <div className="todo">
-      <li className={`todo-item ${todo.completed ? 'completed' : ''} ${todo.progress ? 'in-progress' : ''} `}>
+      <li
+        className={`todo-item ${todo.completed ? 'completed' : ''} ${
+          todo.progress ? 'in-progress' : ''
+        } `}
+      >
         {todo.text}
       </li>
-      <button onClick={editHandler} className="edit-btn">
-        <i className="fas fa-edit"></i>
-      </button>
-      <button
-        onClick={progressHandler}
-        disabled={todo.completed ? true : false}
-        className={`progress-btn ${todo.completed ? 'disabled' : ''}`}
-      >
-        <i className="fas fa-spinner"></i>
-      </button>
-      <button onClick={completeHandler} className="complete-btn">
-        <i className="fas fa-check"></i>
-      </button>
-      <button onClick={deleteHandler} className="trash-btn">
-        <i className="fas fa-trash"></i>
-      </button>
+      <EditButton
+        setAction={setAction}
+        setItemToEdit={setItemToEdit}
+        todo={todo}
+        setInputText={setInputText}
+      />
+      <ProgressButton setTodos={setTodos} todos={todos} todo={todo} />
+      <CompleteButton setTodos={setTodos} todos={todos} todo={todo} />
+      <DeleteButton setTodos={setTodos} todos={todos} todo={todo} />
     </div>
   );
 };
