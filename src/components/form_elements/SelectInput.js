@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { ALL, COMPLETED, UNCOMPLETED, PROGRESS } from '../../constants';
+
 const SelectInput = ({ setStatus }) => {
   const statusHandler = e => {
     setStatus(e.target.value);
@@ -7,10 +9,10 @@ const SelectInput = ({ setStatus }) => {
   return (
     <div className="select">
       <select onChange={statusHandler} name="todos" className="filter-todo">
-        <option value="all">All</option>
-        <option value="completed">Completed</option>
-        <option value="uncompleted">Uncompleted</option>
-        <option value="progress">In Progress</option>
+        <option value={ALL}>All</option>
+        <option value={COMPLETED}>Completed</option>
+        <option value={UNCOMPLETED}>Uncompleted</option>
+        <option value={PROGRESS}>In Progress</option>
       </select>
     </div>
   );

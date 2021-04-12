@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import SelectInput from './form_elements/SelectInput';
-import SubmitButton from './form_elements/SubmitButton';
-import TextInput from './form_elements/TextInput';
+import { COMPLETED, PROGRESS, UNCOMPLETED } from '../constants';
+import { SelectInput, SubmitButton, TextInput } from './form_elements/index';
 
 const Form = ({
   todos,
@@ -24,13 +23,13 @@ const Form = ({
 
   const filterHandler = () => {
     switch (status) {
-      case 'completed':
+      case COMPLETED:
         setFilteredTodos(todos.filter(todo => todo.completed));
         break;
-      case 'uncompleted':
-        setFilteredTodos(todos.filter(todo => todo.completed === false));
+      case UNCOMPLETED:
+        setFilteredTodos(todos.filter(todo => !todo.completed));
         break;
-      case 'progress':
+      case PROGRESS:
         setFilteredTodos(todos.filter(todo => todo.progress));
         break;
       default:

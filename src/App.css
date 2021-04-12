@@ -120,6 +120,7 @@ form button:hover {
 
 .in-progress {
   background-color: rgb(240, 112, 218);
+  color: white;
 }
 
 .fa-trash,

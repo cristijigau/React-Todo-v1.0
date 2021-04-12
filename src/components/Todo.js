@@ -1,9 +1,12 @@
 import React from 'react';
 
-import CompleteButton from './todo_action_buttons/CompleteButton';
-import DeleteButton from './todo_action_buttons/DeleteButton';
-import EditButton from './todo_action_buttons/EditButton';
-import ProgressButton from './todo_action_buttons/ProgressButton';
+import { COMPLETED } from '../constants';
+import {
+  CompleteButton,
+  DeleteButton,
+  EditButton,
+  ProgressButton,
+} from './todo_action_buttons/index';
 
 const Todo = ({
   todo,
@@ -16,7 +19,7 @@ const Todo = ({
   return (
     <div className="todo">
       <li
-        className={`todo-item ${todo.completed ? 'completed' : ''} ${
+        className={`todo-item ${todo.completed ? COMPLETED : ''} ${
           todo.progress ? 'in-progress' : ''
         } `}
       >
