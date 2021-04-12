@@ -40,10 +40,9 @@ const SubmitButton = ({
   };
 
   const actionButton = () => {
-    let button;
     switch (action) {
       case 'add':
-        button = (
+        return (
           <button
             onClick={submitTodoHandler}
             className="todo-button"
@@ -52,9 +51,8 @@ const SubmitButton = ({
             <i className="fas fa-plus-circle"></i>
           </button>
         );
-        break;
       case 'edit':
-        button = (
+        return (
           <button
             onClick={editTodoHandler}
             className="todo-button"
@@ -63,10 +61,7 @@ const SubmitButton = ({
             <i className="fas fa-pen-square"></i>
           </button>
         );
-        break;
-      default:
     }
-    return button;
   };
   return actionButton();
 };

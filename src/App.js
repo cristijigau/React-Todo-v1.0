@@ -1,7 +1,9 @@
 import './App.css';
+
+import React, { useState } from 'react';
+
 import Form from './components/Form';
 import ToDoList from './components/ToDoList';
-import { useState } from 'react';
 
 function App() {
   //State
@@ -10,9 +12,6 @@ function App() {
   const [itemToEdit, setItemToEdit] = useState(undefined);
   const [filteredTodos, setFilteredTodos] = useState([]);
   const [inputText, setInputText] = useState('');
-  //run once when the app starts
-  
-
 
   return (
     <div className="App">

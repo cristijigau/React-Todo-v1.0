@@ -1,10 +1,18 @@
 import React from 'react';
-import EditButton from './todo_action_buttons/EditButton';
-import ProgressButton from './todo_action_buttons/ProgressButton';
+
 import CompleteButton from './todo_action_buttons/CompleteButton';
 import DeleteButton from './todo_action_buttons/DeleteButton';
+import EditButton from './todo_action_buttons/EditButton';
+import ProgressButton from './todo_action_buttons/ProgressButton';
 
-const Todo = ({ todo, todos, setTodos, setAction, setItemToEdit, setInputText }) => {
+const Todo = ({
+  todo,
+  todos,
+  setTodos,
+  setAction,
+  setItemToEdit,
+  setInputText,
+}) => {
   return (
     <div className="todo">
       <li
