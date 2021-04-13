@@ -4,14 +4,8 @@ import { COMPLETED, PROGRESS, UNCOMPLETED } from '../constants';
 import { SelectInput, SubmitButton, TextInput } from './form_elements/index';
 
 const Form = ({
-  todos,
-  setTodos,
-  action,
-  setAction,
-  itemToEdit,
-  setFilteredTodos,
-  setInputText,
-  inputText,
+  todos, // used here
+  setFilteredTodos, //used here
 }) => {
   //State variables
   const [status, setStatus] = useState('all');
@@ -40,16 +34,8 @@ const Form = ({
 
   return (
     <form>
-      <TextInput setInputText={setInputText} inputText={inputText} />
-      <SubmitButton
-        action={action}
-        setAction={setAction}
-        setTodos={setTodos}
-        todos={todos}
-        inputText={inputText}
-        setInputText={setInputText}
-        itemToEdit={itemToEdit}
-      />
+      <TextInput />
+      <SubmitButton todos={todos} />
       <SelectInput setStatus={setStatus} />
     </form>
   );

@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const TextInput = ({ inputText, setInputText }) => {
+import AppContext from '../../contexts/AppContext';
+
+const TextInput = () => {
+  //used useContext Hook instead of props
+  const { inputText, setInputText } = useContext(AppContext);
+
   const inputTextHandler = e => {
     setInputText(e.target.value);
   };

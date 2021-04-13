@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const EditButton = ({ setAction, setItemToEdit, todo, setInputText }) => {
+import AppContext from '../../contexts/AppContext';
+
+const EditButton = ({ todo }) => {
+  const { setAction, setItemToEdit, setInputText } = useContext(AppContext);
   const editHandler = () => {
     setAction('edit');
     setInputText(todo.text);

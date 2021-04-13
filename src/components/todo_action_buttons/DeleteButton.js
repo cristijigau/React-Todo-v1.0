@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const DeleteButton = ({ setTodos, todos, todo }) => {
+import AppContext from '../../contexts/AppContext';
+
+const DeleteButton = ({ todo }) => {
+  const { setTodos, todos } = useContext(AppContext);
+
   const deleteHandler = () => {
     setTodos(todos.filter(item => item.id !== todo.id));
   };
