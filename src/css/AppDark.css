@@ -1,0 +1,61 @@
+.App.dark {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  color: #faf9f6;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+.trash-btn.dark {
+  background: rgb(185, 18, 60);
+}
+.complete-btn.dark {
+  background: rgb(7, 148, 113);
+}
+.edit-btn.dark {
+  background-color: rgb(27, 127, 208);
+}
+.progress-btn.dark {
+  background-color: rgb(223, 23, 188);
+}
+.progress-btn.disabled.dark {
+  background-color: rgb(178, 132, 169);
+}
+
+.trash-btn.dark:hover,
+.complete-btn.dark:hover,
+.edit-btn.dark:hover,
+.progress-btn.dark:hover {
+  background-color: rgba(216, 216, 216, 0.253);
+}
+
+.todo-input.dark {
+  background-color: #323232;
+  color: #faf9f6;
+}
+
+.todo-button.dark {
+  background-color: #323232;
+}
+
+.filter-todo.dark {
+  background-color: #323232;
+}
+
+.todo-item.dark {
+  background-color: #323232;
+  color: #faf9f6;
+}
+
+.todo-item.in-progress.dark {
+  background-color: rgb(223, 23, 188);
+  color: #faf9f6;
+}
+
+.select.dark {
+  color: rgb(27, 127, 208);
+}
+
+.select.dark::after {
+  background: rgb(27, 127, 208);
+  color: #faf9f6;
+}

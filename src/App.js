@@ -1,10 +1,13 @@
-import './App.css';
+import './css/App.css';
+import './css/AppDark.css';
 
 import React, { useState } from 'react';
 
 import Form from './components/Form';
+import ThemeToggleButton from './components/ThemeToggleButton';
 import ToDoList from './components/ToDoList';
 import AppContext from './contexts/AppContext';
+import ThemeContext from './contexts/ThemeContext';
 
 function App() {
   //State
@@ -13,11 +16,17 @@ function App() {
   const [itemToEdit, setItemToEdit] = useState(undefined);
   const [filteredTodos, setFilteredTodos] = useState([]);
   const [inputText, setInputText] = useState('');
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   return (
-    <div className="App">
+    <div className={`App  ${theme}`}>
       <header>
         <h1>Todo List</h1>
+        <ThemeToggleButton toggleTheme={toggleTheme} />
       </header>
       <AppContext.Provider
         value={{
@@ -31,8 +40,10 @@ function App() {
           inputText,
         }}
       >
-        <Form setFilteredTodos={setFilteredTodos} todos={todos} />
-        <ToDoList filteredTodos={filteredTodos} />
+        <ThemeContext.Provider value={theme}>
+          <Form setFilteredTodos={setFilteredTodos} todos={todos} />
+          <ToDoList filteredTodos={filteredTodos} />
+        </ThemeContext.Provider>
       </AppContext.Provider>
     </div>
   );

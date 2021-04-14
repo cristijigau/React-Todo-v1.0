@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
 import AppContext from '../../contexts/AppContext';
+import ThemeContext from '../../contexts/ThemeContext';
 
 const SubmitButton = ({ todos }) => {
   const {
@@ -11,6 +12,8 @@ const SubmitButton = ({ todos }) => {
     setInputText,
     itemToEdit,
   } = useContext(AppContext);
+
+  const theme = useContext(ThemeContext);
 
   const submitTodoHandler = e => {
     e.preventDefault();
@@ -48,7 +51,7 @@ const SubmitButton = ({ todos }) => {
         return (
           <button
             onClick={submitTodoHandler}
-            className="todo-button"
+            className={`todo-button ${theme}`}
             type="submit"
           >
             <i className="fas fa-plus-circle"></i>
@@ -58,7 +61,7 @@ const SubmitButton = ({ todos }) => {
         return (
           <button
             onClick={editTodoHandler}
-            className="todo-button"
+            className={`todo-button ${theme}`}
             type="submit"
           >
             <i className="fas fa-pen-square"></i>
