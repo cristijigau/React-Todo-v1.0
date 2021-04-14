@@ -21,26 +21,17 @@ function App() {
       </header>
       <AppContext.Provider
         value={{
-          setTodos,
-          action,
-          setAction,
-          itemToEdit,
-          setInputText,
-          inputText,
-        }}
-      >
-        <Form setFilteredTodos={setFilteredTodos} todos={todos} />
-      </AppContext.Provider>
-      <AppContext.Provider
-        value={{
           todos,
           setTodos,
           action,
           setAction,
           setItemToEdit,
           setInputText,
+          itemToEdit,
+          inputText,
         }}
       >
+        <Form setFilteredTodos={setFilteredTodos} todos={todos} />
         <ToDoList filteredTodos={filteredTodos} />
       </AppContext.Provider>
     </div>
