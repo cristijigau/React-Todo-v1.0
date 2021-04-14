@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const SubmitButton = ({
-  action,
-  setAction,
-  setTodos,
-  todos,
-  inputText,
-  setInputText,
-  itemToEdit,
-}) => {
+import AppContext from '../../contexts/AppContext';
+
+const SubmitButton = ({ todos }) => {
+  const {
+    action,
+    setAction,
+    setTodos,
+    inputText,
+    setInputText,
+    itemToEdit,
+  } = useContext(AppContext);
+
   const submitTodoHandler = e => {
     e.preventDefault();
     setTodos([

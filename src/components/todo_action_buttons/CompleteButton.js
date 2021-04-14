@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const CompleteButton = ({ setTodos, todos, todo }) => {
+import AppContext from '../../contexts/AppContext';
+
+const CompleteButton = ({ todo }) => {
+  const { setTodos, todos } = useContext(AppContext);
+
   const completeHandler = () => {
     setTodos(
       todos.map(item => {

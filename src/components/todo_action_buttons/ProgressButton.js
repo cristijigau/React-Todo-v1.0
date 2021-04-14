@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const ProgressButton = ({ setTodos, todos, todo }) => {
+import AppContext from '../../contexts/AppContext';
+
+const ProgressButton = ({ todo }) => {
+  const { setTodos, todos } = useContext(AppContext);
   const progressHandler = () => {
     setTodos(
       todos.map(item => {

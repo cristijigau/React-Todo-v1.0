@@ -8,14 +8,7 @@ import {
   ProgressButton,
 } from './todo_action_buttons/index';
 
-const Todo = ({
-  todo,
-  todos,
-  setTodos,
-  setAction,
-  setItemToEdit,
-  setInputText,
-}) => {
+const Todo = ({ todo }) => {
   return (
     <div className="todo">
       <li
@@ -25,15 +18,10 @@ const Todo = ({
       >
         {todo.text}
       </li>
-      <EditButton
-        setAction={setAction}
-        setItemToEdit={setItemToEdit}
-        todo={todo}
-        setInputText={setInputText}
-      />
-      <ProgressButton setTodos={setTodos} todos={todos} todo={todo} />
-      <CompleteButton setTodos={setTodos} todos={todos} todo={todo} />
-      <DeleteButton setTodos={setTodos} todos={todos} todo={todo} />
+      <EditButton todo={todo} />
+      <ProgressButton todo={todo} />
+      <CompleteButton todo={todo} />
+      <DeleteButton todo={todo} />
     </div>
   );
 };

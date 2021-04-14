@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import Form from './components/Form';
 import ToDoList from './components/ToDoList';
+import AppContext from './contexts/AppContext';
 
 function App() {
   //State
@@ -18,25 +19,21 @@ function App() {
       <header>
         <h1>Todo List</h1>
       </header>
-      <Form
-        todos={todos}
-        setTodos={setTodos}
-        action={action}
-        setAction={setAction}
-        itemToEdit={itemToEdit}
-        setFilteredTodos={setFilteredTodos}
-        setInputText={setInputText}
-        inputText={inputText}
-      />
-      <ToDoList
-        todos={todos}
-        setTodos={setTodos}
-        filteredTodos={filteredTodos}
-        action={action}
-        setAction={setAction}
-        setItemToEdit={setItemToEdit}
-        setInputText={setInputText}
-      />
+      <AppContext.Provider
+        value={{
+          todos,
+          setTodos,
+          action,
+          setAction,
+          setItemToEdit,
+          setInputText,
+          itemToEdit,
+          inputText,
+        }}
+      >
+        <Form setFilteredTodos={setFilteredTodos} todos={todos} />
+        <ToDoList filteredTodos={filteredTodos} />
+      </AppContext.Provider>
     </div>
   );
 }
