@@ -1,5 +1,7 @@
 import { createContext } from 'react';
 
-const ThemeContext = createContext('light');
+import { LIGHT } from '../constants';
+
+const ThemeContext = createContext(LIGHT);
 
 export default ThemeContext;

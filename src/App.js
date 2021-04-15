@@ -6,8 +6,8 @@ import React, { useState } from 'react';
 import Form from './components/Form';
 import ThemeToggleButton from './components/ThemeToggleButton';
 import ToDoList from './components/ToDoList';
-import AppContext from './contexts/AppContext';
-import ThemeContext from './contexts/ThemeContext';
+import { DARK, LIGHT } from './constants';
+import {AppContext, ThemeContext} from "./contexts";
 
 function App() {
   //State
@@ -16,10 +16,10 @@ function App() {
   const [itemToEdit, setItemToEdit] = useState(undefined);
   const [filteredTodos, setFilteredTodos] = useState([]);
   const [inputText, setInputText] = useState('');
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(LIGHT);
 
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme(theme === LIGHT ? DARK : LIGHT);
   };
 
   return (

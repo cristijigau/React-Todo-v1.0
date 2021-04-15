@@ -3,4 +3,7 @@ const UNCOMPLETED = 'uncompleted';
 const PROGRESS = 'progress';
 const ALL = 'all';
 
-export { ALL, COMPLETED, UNCOMPLETED, PROGRESS };
+const LIGHT = 'light';
+const DARK = 'dark';
+
+export { ALL, COMPLETED, UNCOMPLETED, PROGRESS, LIGHT, DARK };
