@@ -3,16 +3,24 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  background-image: linear-gradient(
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+
+.App {
+  background: linear-gradient(
     120deg,
     rgb(172, 220, 241) 0%,
     rgb(46, 184, 248) 100%
   );
   color: white;
   font-family: 'Open Sans', sans-serif;
-  min-height: 100vh;
 }
+
 header {
   font-size: 1.5rem;
 }
@@ -25,22 +33,25 @@ form {
   align-items: center;
   flex-wrap: wrap;
 }
-form input,
-form button {
+form > input,
+form > button {
   padding: 0.5rem;
   font-size: 2rem;
   border: none;
   background: white;
   border-radius: 5px;
 }
-form button {
+form > input:focus {
+  outline: none;
+}
+form > button {
   color: #4797ff;
   background: #f7fffe;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-left: 0.5rem;
 }
-form button:hover {
+form > button:hover {
   color: white;
   background: #4797ff;
 }
@@ -48,6 +59,10 @@ form button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.todo-input {
+  width: 30%;
 }
 
 .todo-list {
@@ -71,7 +86,7 @@ form button:hover {
 .filter-todo {
   padding: 1rem;
 }
-.todo li {
+.todo > li {
   flex: 1;
 }
 
@@ -108,7 +123,7 @@ form button:hover {
 .progress-btn {
   background-color: rgb(240, 112, 218);
 }
-.disabled {
+.progress-btn.disabled {
   background-color: rgb(230, 215, 227);
 }
 
@@ -118,7 +133,7 @@ form button:hover {
   border-radius: 5px;
 }
 
-.in-progress {
+.todo-item.in-progress {
   background-color: rgb(240, 112, 218);
   color: white;
 }
@@ -176,4 +191,61 @@ select {
   background: #4797ff;
   cursor: pointer;
   pointer-events: none;
+}
+
+/* Theme Toggle */
+
+.theme-switch {
+  margin-left: 5rem;
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(24px);
+}
+
+.checkbox:checked + .label {
+  background-color: rgb(27, 127, 208);
+}
+
+.label {
+  background-color: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border-radius: 50px;
+  padding: 5px;
+  width: 50px;
+  height: 26px;
+  transition: background-color 0.3s linear;
+}
+
+.ball {
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background-color: rgb(231, 228, 228);
+  transition: transform 0.2s linear;
+}
+
+.fa-moon {
+  color: rgb(231, 228, 228);
+}
+
+.fa-sun {
+  color: rgb(27, 127, 208);
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .todo-input {
+    width: 75%;
+  }
 }
